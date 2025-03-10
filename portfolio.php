@@ -20,18 +20,18 @@
     <div id="menu">
       <div id="header">
         <nav class="navbar navbar-inverse navbar-expand-lg justify-content-center">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="index.php">
             <img src="images/logo.png" alt="Logo" style="width:15%"></a>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html"> Αρχική </a>
+              <a class="nav-link" href="index.php"> Αρχική </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="portfolio.html" style="background-color:rgb(129, 139, 139)">Portfolio εργασιών
+              <a class="nav-link" href="portfolio.php" style="background-color:rgb(129, 139, 139)">Portfolio εργασιών
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile.html">Προφίλ </a>
+              <a class="nav-link" href="profile.php">Προφίλ </a>
             </li>
             <li>
               <a href="login.html" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a>
