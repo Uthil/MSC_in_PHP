@@ -34,7 +34,7 @@
               <a class="nav-link" href="profile.php">Προφίλ </a>
             </li>
             <li>
-              <a href="login.html" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a>
+              <a href="login.php" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a>
             </li>
           </ul>
         </nav>

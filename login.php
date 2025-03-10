@@ -59,7 +59,7 @@
     <p></p>
     <p style="text-align: center;">
       Δεν έχετε λογαριασμό;
-      <a href="register.html">Εγγραφείτε εδώ</a>
+      <a href="register.php">Εγγραφείτε εδώ</a>
     </p>
     <!--</div>-->
     <div id="footer" style="text-align:center;text-decoration: none;margin-top:13%">
