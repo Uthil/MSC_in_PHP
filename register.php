@@ -44,6 +44,32 @@
 
 
 <body>
+  <?php // Έλεγχος αν έχει γίνει υποβολή της φόρμας
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      include("DBconnect.php");
+      $username = htmlspecialchars(trim($_POST["username"]));
+      $email = htmlspecialchars(trim($_POST["email"]));
+      $password = htmlspecialchars(trim($_POST["pass_1"]));
+      // Δημιουργία και εκτέλεση του ερωτήματος ελέγχου αν υπάρχεί ίδιο username
+      $sql = "SELECT username FROM users WHERE username = '$username'";
+      $result1 = $con->query($sql);
+      $n = $result->num_rows;
+      if ($n >= 1){
+        $con->close();
+        echo '<script>alert("Το username ήδη υπάρχει..."); document.location="register.php";</script>';
+      } else {
+         $sql2 = "INSERT INTO users(Email, username, Password, Role) VALUES ('$email', '$username', '$password', 'Φοιτητής')";            
+         $result2 = $con->query($sql2);
+         if($result2 == FALSE){
+            $con->close();
+            echo '<script>alert("Error: Δεν ήταν δυνατή η αποθήκευση..."); window.location="register.php";</script>';
+          } else{
+            $con->close();
+            echo '<script>alert("Επιτυχής αποθήκευση χρήστη."); window.location="index.php";</script>';
+          }
+       } 
+    }
+  ?>
   <div class="container-fluid">
     <div id="menu">
       <div id="header">
@@ -73,13 +99,13 @@
       <div class="row" style="width:50%;padding-left: 10px;padding-top: 10px;">
         <form method="POST" action="" onsubmit="return checkFormContent()">
           <p><b>Όνομα Χρήστη:</b><br>
-            <input type="text" style="width: 200%" placeholder="Πληκτρολογήστε το όνομα χρήστη" id="username" required>
+            <input type="text" style="width: 200%" placeholder="Πληκτρολογήστε το όνομα χρήστη" id="username" name="username"required>
           </p>
           <p><b>Email:</b><br>
-            <input type="email" style="width: 200%" placeholder="Πληκτρολογήστε το email σας" id="email" required>
+            <input type="email" style="width: 200%" placeholder="Πληκτρολογήστε το email σας" id="email" name="email" required>
           </p>
           <p><b>Kωδικός πρόσβασης:</b> <br>
-            <input type="password" style="width: 200%" placeholder="Πληκτρολογήστε το κωδικό πρόσβασης"id="pass_1" required>
+            <input type="password" style="width: 200%" placeholder="Πληκτρολογήστε το κωδικό πρόσβασης"id="pass_1" name="pass_1" required>
           </p>
           <p><b>Επιβεβαίωση Kωδικού:</b> <br>
             <input type="password" style="width: 200%" placeholder="Επιβεβαιώστε το κωδικό πρόσβασης" id="pass_2" required>
