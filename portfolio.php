@@ -46,7 +46,7 @@
       <div class="row">
         <p>Αν θέλεις να υποβάλεις νέα εργασία κάνε κλικ εδώ:</p>
         <p>
-          <a href="submit.html" class="btn btn-success">Υποβολή Εργασίας</a>
+          <a href="submit.php" class="btn btn-success">Υποβολή Εργασίας</a>
         </p>
       </div>
       <div class="row">

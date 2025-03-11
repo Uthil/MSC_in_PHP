@@ -11,18 +11,33 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles.css">
   <script>
-    function checkFormContent(){  /*function για τον ελεγχο των στοιχείων της φορμας χρήστη */
+    function checkFormContent(){  /*Συνάρτηση για τον τοπικό έλεγχο των στοιχείων της φορμας χρήστη */
       let pass_1 = document.getElementById("pass_1").value;
       let pass_2 = document.getElementById("pass_2").value;
       if (pass_1 != pass_2){    /* Έλεγχος των κωδικών πρόσβασης ώστε να είναι ίδιοι*/
         alert("Οι κωδικοί που εισάγατε είναι λάθος. Παρακαλώ εισάγετε σωστά τους κωδικούς πρόσβασης");
         return false;
       }
-      if(pass_1.length <=9){
+      if(pass_1.length <=9){ /*περιπτώσεις ελέγχου ώστε να περιέχει τουλάχιστον έναν αριθμό, ένα πεζό γράμμα, ένα κεφαλαίο γράμμα και ένα σύμβολο */
         alert("Ο κωδικός πρόσβασης πρέπει να είναι τουλάχιστον 10 χαρακτηρες")
         return false;
       }
-      
+      if(pass_1.match (/\d+/g) == null){
+        alert("Ο κωδικός πρόσβασης πρέπει να περιέχει ένα τουλάχιστον ψηφίο(αριθμό)")
+        return false;
+      }
+      if(pass_1.match (/[a-z]+/g) == null){
+        alert("Ο κωδικός πρόσβασης πρέπει να περιέχει ένα τουλάχιστον πεζό γράμμα)")
+        return false;
+      }
+      if(pass_1.match (/[A-Z]+/g) == null){
+        alert("Ο κωδικός πρόσβασης πρέπει να περιέχει ένα τουλάχιστον κεφαλαίο γράμμα)")
+        return false;
+      }
+      f(pass_1.match (/[^A-Z a-z 0-9]+/g) == null){
+        alert("Ο κωδικός πρόσβασης πρέπει να περιέχει ένα τουλάχιστον σύμβολο)")
+        return false;
+      }
     }
   </script>  
 </head>
