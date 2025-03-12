@@ -14,6 +14,36 @@
 </head>
 
 <body>
+  <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      include("connect.php");
+      $username = htmlspecialchars(trim($_POST["username"]));
+      $password = htmlspecialchars(trim($_POST["pass_1"]));
+      $sql = "SELECT * FROM users WHERE username = '$username'";
+      $result = $con->query($sql);
+      $n = $result->num_rows;
+      if ($n == 0){
+        $con->close();
+        echo '<script>alert("Τα στοιχεία που δώσατε είναι λάθος!"); document.location="login.php";</script>';
+        } else {
+          // Η μεταβλητή $user περιλαμβάνει τα στοιχεία του χρήστη (αποτελέσματα)
+          $user = $result->fetch_assoc();
+          $user_password = $user['password'];
+          if($user_password != $password){
+            $con->close();
+            echo '<script>alert("Τα στοιχεία που δώσατε είναι λάθος!"); document.location="login.php";</script>';
+            } else {
+              session_start();  //Προσωρινή αποθήκευση στοιχείων χρήστη
+              $_SESSION['username'] = $username;
+              $_SESSION['email'] = $user['email'];
+              $_SESSION['role'] = $user['role'];
+              $con->close();
+              // Άνοιγμα κεντρικής σελίδας
+              header("Location: home.php");
+            }
+        } 
+    } else {
+  ?>
   <div class="container-fluid">
     <div id="menu">
       <div id="header">
@@ -42,12 +72,12 @@
     <div style="border:1px solid grey;width:25%;margin:auto;">
       <div class="row" style="width: 160%;padding-left: 10px;padding-top: 10px;">
         <p>
-        <form action="" method="POST">
+        <form action="login.php" method="POST">
           <p><b>Όνομα Χρήστη:</b><br>
-            <input type="text" style="width: 60%" placeholder="Πληκτρολογήστε το όνομα χρήστη">
+            <input type="text" style="width: 60%" placeholder="Πληκτρολογήστε το όνομα χρήστη" required>
           </p>
           <p><b>Kωδικός πρόσβασης:</b><br>
-            <input type="password" style="width: 60%" placeholder="Πληκτρολογήστε το κωδικό πρόσβασης">
+            <input type="password" style="width: 60%" placeholder="Πληκτρολογήστε το κωδικό πρόσβασης" required>
           </p>
           <p>
             <input type="submit" value="Είσοδος" class="btn btn-success"><br>
@@ -68,6 +98,9 @@
 
     </div>
   </div>
+  <?php
+      }
+  ?>
 </body>
 
 </html>

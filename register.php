@@ -68,7 +68,7 @@
             echo '<script>alert("Επιτυχής αποθήκευση χρήστη."); window.location="index.php";</script>';
           }
        } 
-    }
+    } else {
   ?>
   <div class="container-fluid">
     <div id="menu">
@@ -118,11 +118,13 @@
       </div>
     </div>
     <!--</div>-->
-
     <div id="footer" style="text-align:center;text-decoration: none; margin-top:10%">
       <a href="oroi.pdf" target="_blank">Όροι Χρήσης</a> |
       <a href="politiki.pdf" target="_blank">Πολιτική απορρήτου</a>
     </div>
+    <?php
+        }
+    ?>
 </body>
 
 </html>
