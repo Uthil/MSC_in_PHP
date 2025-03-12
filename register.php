@@ -97,7 +97,7 @@
     <!--<div id="content">-->
     <div style="border:1px solid grey;width:30%;margin:auto">
       <div class="row" style="width:50%;padding-left: 10px;padding-top: 10px;">
-        <form method="POST" action="" onsubmit="return checkFormContent()">
+        <form method="POST" action="register.php" onsubmit="return checkFormContent()">
           <p><b>Όνομα Χρήστη:</b><br>
             <input type="text" style="width: 200%" placeholder="Πληκτρολογήστε το όνομα χρήστη" id="username" name="username"required>
           </p>
