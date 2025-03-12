@@ -16,7 +16,7 @@
 <body>
   <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      include("connect.php");
+      include("DBconnect.php");
       $username = htmlspecialchars(trim($_POST["username"]));
       $password = htmlspecialchars(trim($_POST["pass_1"]));
       $sql = "SELECT * FROM users WHERE username = '$username'";
