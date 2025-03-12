@@ -105,7 +105,7 @@
             <input type="email" style="width: 200%" placeholder="Πληκτρολογήστε το email σας" id="email" name="email" required>
           </p>
           <p><b>Kωδικός πρόσβασης:</b> <br>
-            <input type="password" style="width: 200%" placeholder="Πληκτρολογήστε το κωδικό πρόσβασης"id="pass_1" name="pass_1" required>
+            <input type="password" style="width: 200%" placeholder="Πληκτρολογήστε το κωδικό πρόσβασης" id="pass_1" name="pass_1" required>
           </p>
           <p><b>Επιβεβαίωση Kωδικού:</b> <br>
             <input type="password" style="width: 200%" placeholder="Επιβεβαιώστε το κωδικό πρόσβασης" id="pass_2" required>
