@@ -24,12 +24,6 @@
               <a class="nav-link" href="index.php" style="background-color:rgb(129, 139, 139);"> Αρχική
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="portfolio.php">Portfolio Εργασιών</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="profile.php">Προφίλ</a>
-            </li>
             <li><a href="login.php" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a></li>
           </ul>
         </nav>
