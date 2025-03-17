@@ -52,16 +52,15 @@
               </a>
             </li>
             <?php
-            if ($role === 'Φοιτητής'){
-              echo "<li><a href='portfolio.php' class='nav-link'>Portfolio Εργασιών</a></li>";
-              echo "<li><a href='profile.php' class='nav-link' >Προφίλ</a></li>";
-              echo "<li><a href='ypovoli_ergasias.php' class='nav-link'>Υποβολή Εργασίας</a></li>";
-            } else {
-              echo "<li><a href='dimiourgia_ekfonisis.php' style='background-color:rgb(129, 139, 139);' class='nav-link'>Δημιουργία Εκφώνησης Εργασίας</a></li>";
-              echo "<li><a href='provoli_ergasion.php' class='nav-link'>Προβολή Εργασιών</a></li>";
-              echo "<li><a href='eikona_foititi.php' class='nav-link'>Εικόνα Φοιτητή</a></li>";
-            }
-
+                if ($role === 'Φοιτητής'){
+                echo "<li><a href='portfolio.php' class='nav-link'>Portfolio Εργασιών</a></li>";
+                echo "<li><a href='profile.php' class='nav-link' >Προφίλ</a></li>";
+                echo "<li><a href='ypovoli_ergasias.php' class='nav-link'>Υποβολή Εργασίας</a></li>";
+                } else {
+                echo "<li><a href='dimiourgia_ekfonisis.php' style='background-color:rgb(129, 139, 139);' class='nav-link'>Δημιουργία Εκφώνησης Εργασίας</a></li>";
+                echo "<li><a href='provoli_ergasion.php' class='nav-link'>Προβολή Εργασιών</a></li>";
+                echo "<li><a href='eikona_foititi.php' class='nav-link'>Εικόνα Φοιτητή</a></li>";
+                }
             ?>
             <li><a href="logout.php" class="btn btn-primary btn-sm" style="margin-top:10%">Έξοδος</a></li>
           </ul>
@@ -98,8 +97,7 @@
             }
             ?>
           </select>  
-          </p>
-        
+        </p>
         <p>
           <input type="submit" value="Αποθήκευση" class="btn btn-primary">
         </p>
@@ -112,7 +110,7 @@
     </div>
   </div>
   <?php
-  }
+    }
   ?>
 </body>
 
