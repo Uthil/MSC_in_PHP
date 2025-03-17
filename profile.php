@@ -71,11 +71,11 @@
     <div id="menu">
       <div id="header">
         <nav class="navbar navbar-inverse navbar-expand-lg justify-content-center">
-          <a class="navbar-brand" href="index.php">
+          <a class="navbar-brand" href="home.php">
             <img src="images/logo.png" alt="Logo" style="width:15%"></a>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.php"> Αρχική </a>
+              <a class="nav-link" href="home.php"> Αρχική </a>
             </li>
             <?php
               if ($role === 'Φοιτητής'){
