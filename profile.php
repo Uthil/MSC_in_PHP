@@ -18,7 +18,7 @@
     session_start();
     $role = $_SESSION['role'];
     include("DBconnect.php");
-    $userid = $_SESSION['userid'];
+    $userid = $_SESSION['Userid'];
     // Έλεγχος αν ο φοιτητής έχει ήδη profile
     $sql1 = "SELECT * FROM userprofile WHERE Userid=$userid";
     $result = $con->query($sql1);
