@@ -18,7 +18,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       include("DBconnect.php");
       $username = htmlspecialchars(trim($_POST["username"]));
-      $password = htmlspecialchars(trim($_POST["pass_1"]));
+      $password = htmlspecialchars(trim($_POST["password"]));
       $sql = "SELECT * FROM users WHERE username = '$username'";
       $result = $con->query($sql);
       $n = $result->num_rows;
@@ -35,8 +35,8 @@
             } else {
               session_start();  //Προσωρινή αποθήκευση στοιχείων χρήστη
               $_SESSION['username'] = $username;
-              $_SESSION['email'] = $user['email'];
-              $_SESSION['role'] = $user['role'];
+              $_SESSION['role'] = $user['Role'];
+              $_SESSION['Userid'] = $user['Userid'];
               $con->close();
               // Άνοιγμα κεντρικής σελίδας
               header("Location: home.php");
@@ -74,10 +74,10 @@
         <p>
         <form action="login.php" method="POST">
           <p><b>Όνομα Χρήστη:</b><br>
-            <input type="text" style="width: 60%" placeholder="Πληκτρολογήστε το όνομα χρήστη" required>
+            <input type="text" name="username" style="width: 60%" placeholder="Πληκτρολογήστε το όνομα χρήστη" required>
           </p>
           <p><b>Kωδικός πρόσβασης:</b><br>
-            <input type="password" style="width: 60%" placeholder="Πληκτρολογήστε το κωδικό πρόσβασης" required>
+            <input type="password" name="pass_1" style="width: 60%" placeholder="Πληκτρολογήστε το κωδικό πρόσβασης" required>
           </p>
           <p>
             <input type="submit" value="Είσοδος" class="btn btn-success"><br>
