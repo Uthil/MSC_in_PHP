@@ -28,7 +28,7 @@
             <img src="images/logo.png" alt="Logo" style="width:15%"></a>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.php"> Αρχική </a>
+              <a class="nav-link" href="home.php"> Αρχική </a>
             </li>
             <?php
             if ($role === 'Φοιτητής') {
