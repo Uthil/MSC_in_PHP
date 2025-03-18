@@ -16,6 +16,10 @@
 </head>
 
 <body>
+  <?php
+  session_start();
+  $role = $_SESSION['role'];
+  ?>
   <div class="container-fluid">
     <div id="menu">
       <div id="header">
@@ -26,16 +30,18 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php"> Αρχική </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="portfolio.php" style="background-color:rgb(129, 139, 139)">Portfolio εργασιών
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="profile.php">Προφίλ </a>
-            </li>
-            <li>
-              <a href="login.php" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a>
-            </li>
+            <?php
+            if ($role === 'Φοιτητής') {
+              echo "<li><a href='portfolio.php' class='nav-link' style='background-color:rgb(129, 139, 139);'>Portfolio Εργασιών</a></li>";
+              echo "<li><a href='profile.php' class='nav-link'>Προφίλ</a></li>";
+              echo "<li><a href='ypovoli_ergasias.php' class='nav-link'>Υποβολή Εργασίας</a></li>";
+            } else {
+              echo "<li><a href='dimiourgia_ekfonisis.php' class='nav-link'>Δημιουργία Εκφώνησης Εργασίας</a></li>";
+              echo "<li><a href='provoli_ergasion.php' class='nav-link'>Προβολή Εργασιών</a></li>";
+              echo "<li><a href='eikona_foititi.php' class='nav-link'>Εικόνα Φοιτητή</a></li>";
+            }
+            ?>
+            <li><a href="logout.php" class="btn btn-primary btn-sm" style="margin-top:10%">Έξοδος</a></li>
           </ul>
         </nav>
       </div>
@@ -62,7 +68,7 @@
       <div id="accordion">
         <div class="card">
           <div class="card-header" style="background-color: lightslategray;">
-            <a class="btn" data-bs-toggle="collapse" href="#collapseOne" style="color:white">Βασικές εξειδικεύσεις σε
+            <a class="btn" data-bs-toggle="collapse" href="#collapseOne" style="color:white">ΠΛΣ50: Βασικές εξειδικεύσεις σε
               θεωρία και λογισμικό
             </a>
           </div>
@@ -103,7 +109,7 @@
           </div>
           <div class="card">
             <div class="card-header" style="background-color: lightslategray;">
-              <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo" style="color:white">Βασικές
+              <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo" style="color:white">ΠΛΣ51: Βασικές
                 εξειδικεύσεις σε
                 Αρχιτεκτονική και Δίκτυα των Υπολογιστών
               </a>
@@ -130,7 +136,7 @@
             </div>
             <div class="card">
               <div class="card-header" style="background-color: lightslategray;">
-                <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree" style="color:white">Σχεδιασμός
+                <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree" style="color:white">ΠΛΣ61: Σχεδιασμός
                   και Διαχείριση Λογισμικού
                 </a>
               </div>
