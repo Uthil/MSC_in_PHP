@@ -81,23 +81,23 @@
         <p><b>Εκφώνηση:</b><br>
         <textarea name="ekfonisi" rows="7" style="width: 95%" placeholder="Πληκτρολογήστε την εκφώνηση"></textarea>
         </p>
+        <p><b>Μάθημα:</b><br>
+          <select name="mathima" style="width: 95%">
+            <?php
+            if($n>0){
+                while($row = $result->fetch_assoc()){
+                    echo "<option>".$row['Course_id'].$row['Course_title']."</option>";
+                }
+             }
+            ?>
+          </select>  
+        </p>
         <p><b>Αρχείο εργασίας:</b><br>
           <input type="file"  name="file" style="width:95%">
         </p>
         <?php
             if($n == 0) echo "Θα πρέπει να εισάγετε μαθήματα στη ΒΔ";
         ?>
-        <p><b>Μάθημα:</b><br>
-          <select name="mathima" style="width: 95%">
-            <?php
-            if($n>0){
-                while($row = $result->fetch_assoc()){
-                    echo "<option>".$row['Course_id']."</option>";
-                }
-            }
-            ?>
-          </select>  
-        </p>
         <p>
           <input type="submit" value="Αποθήκευση" class="btn btn-primary">
         </p>
