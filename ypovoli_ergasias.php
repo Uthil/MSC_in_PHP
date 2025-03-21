@@ -37,7 +37,7 @@
             echo '<script>alert("Error: Δεν ήταν δυνατή η αποθήκευση..."); window.location="dimiourgia_ekfonisis.php";</script>';
         } else {
             $con->close();
-            echo '<script>alert("Επιτυχής αποθήκευση προφίλ."); window.location="home.php";</script>';
+            echo '<script>alert("Επιτυχής αποθήκευση"); window.location="home.php";</script>';
         }
     } else {
 

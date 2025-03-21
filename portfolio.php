@@ -34,7 +34,6 @@
             if ($role === 'Φοιτητής') {
               echo "<li><a href='portfolio.php' class='nav-link' style='background-color:rgb(129, 139, 139);'>Portfolio Εργασιών</a></li>";
               echo "<li><a href='profile.php' class='nav-link'>Προφίλ</a></li>";
-              echo "<li><a href='ypovoli_ergasias.php' class='nav-link'>Υποβολή Εργασίας</a></li>";
             } else {
               echo "<li><a href='dimiourgia_ekfonisis.php' class='nav-link'>Δημιουργία Εκφώνησης Εργασίας</a></li>";
               echo "<li><a href='provoli_ergasion.php' class='nav-link'>Προβολή Εργασιών</a></li>";
