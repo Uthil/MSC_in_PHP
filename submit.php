@@ -8,7 +8,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+  </script>
   <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -28,7 +28,7 @@
               <a class="nav-link" href="portfolio.php">Portfolio εργασιών</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile.php" style="background-color:rgb(129, 139, 139)">Προφίλ</a>
+              <a class="nav-link" href="profile.php">Προφίλ</a>
             </li>
             <li><a href="login.php" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a></li>
           </ul>
