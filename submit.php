@@ -78,23 +78,23 @@
           <div class="row" style="width:50%;padding-left: 10px;padding-top: 10px;">
             <form action="">
               <p><b>Μάθημα:</b><br>
-                <select name="mathima" style="width: 220%">
+                <select name="mathima" id="mathimaSelect" style="width: 220%">
                   <?php
                   if ($n > 0) {
                     while ($row = $result->fetch_assoc()) {
-                      echo "<option>" . $row['Course_id'] . "</option>";
+                      echo "<option value='" . $row['Course_id'] . "'>" . $row['Course_id'] . "</option>";
                     }
                   }
                   ?>
                 </select>
               </p>
               <p><b>Εργασία:</b><br>
-                <select name="ergasia" style="width: 220%">
+                <select name="ergasia" id="ergasiaSelect" style="width: 220%">
                   <?php
                   $sql3 = "SELECT * from ekfonisiergasias";
                   $result3 = $con->query($sql3);
                   while ($row = $result3->fetch_assoc()) {
-                    echo "<option>" . $row['Title'] . "</option>";
+                    echo "<option value='" . $row['Course_id'] . "' data-mathima='" . $row['Course_id'] . $row['Course_title'] . "'>" . $row['Title'] . "</option>";
                   }
                   ?>
                 </select>
@@ -126,6 +126,35 @@
   <?php
   }
   ?>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const mathimaSelect = document.getElementById("mathimaSelect");
+      const ergasiaSelect = document.getElementById("ergasiaSelect");
+      const ergasiaOptions = Array.from(ergasiaSelect.options); // Αποθήκευση όλων των επιλεγμένων εργασιών
+
+      mathimaSelect.addEventListener("change", function() {
+        const selectedMathima = this.value;
+
+        // Καθαρισμός της λίστας εργασιών
+        ergasiaSelect.innerHTML = "";
+
+        // Φιλτράρισμα και εμφάνιση των σχετικών εργασιών
+        ergasiaOptions.forEach(option => {
+          if (option.getAttribute("data-mathima") === selectedMathima) {
+            ergasiaSelect.appendChild(option);
+          }
+        });
+
+        // Αν δεν υπάρχουν διαθέσιμες εργασίες?
+        if (ergasiaSelect.options.length === 0) {
+          let noOption = document.createElement("option");
+          noOption.text = "Δεν υπάρχουν διαθέσιμες εργασίες";
+          ergasiaSelect.appendChild(noOption);
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>

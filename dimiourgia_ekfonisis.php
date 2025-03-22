@@ -85,7 +85,7 @@
               <?php
               if ($n > 0) {
                 while ($row = $result->fetch_assoc()) {
-                  echo "<option>" . $row['Course_id'] . $row['Course_title'] . "</option>";
+                  echo "<option>" . $row['Course_id'] .  "</option>";
                 }
               }
               ?>
