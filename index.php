@@ -8,7 +8,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -20,11 +20,11 @@
           <a class="navbar-brand" href="index.php">
             <img src="images/logo.png" alt="Logo" style="width:15%"></a>
           <ul class="navbar-nav">
-            <li class="nav-item">
+            <<!--<li class="nav-item"> //Δεν χρειάζεται το κουμπι της αρχικής
               <a class="nav-link" href="index.php" style="background-color:rgb(129, 139, 139);"> Αρχική
-              </a>
-            </li>
-            <li><a href="login.php" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a></li>
+              </a>-->
+              </li>
+              <li><a href="login.php" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a></li>
           </ul>
         </nav>
       </div>

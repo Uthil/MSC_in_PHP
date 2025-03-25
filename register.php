@@ -82,12 +82,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="index.php"> Αρχική </a>
               </li>
-              <li class="nav-item">
+              <!--<li class="nav-item"> //Δεν χρειάζονται τα κουμπια εφοσον δεν έχει κάνει είσοδο χρήστης
                 <a class="nav-link" href="portfolio.php">Portfolio εργασιών</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="profile.php" style="background-color:rgb(129, 139, 139)">Προφίλ</a>
-              </li>
+              </li>-->
               <li><a href="login.php" class="btn btn-primary btn-sm" style="margin-top:10%">Είσοδος</a></li>
             </ul>
           </nav>
