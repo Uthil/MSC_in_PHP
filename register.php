@@ -55,7 +55,7 @@
     // Δημιουργία και εκτέλεση του ερωτήματος ελέγχου αν υπάρχεί ίδιο username
     $sql = "SELECT username FROM users WHERE username = '$username'";
     $result1 = $con->query($sql);
-    $n = $result->num_rows;
+    $n = $result1->num_rows;
     if ($n >= 1) {
       $con->close();
       echo '<script>alert("Το username ήδη υπάρχει..."); document.location="register.php";</script>';
