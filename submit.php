@@ -76,7 +76,7 @@
         </div>
         <div style="border:1px solid grey;width: 30%;margin:auto">
           <div class="row" style="width:50%;padding-left: 10px;padding-top: 10px;">
-            <form action="">
+            <form method="POST" action="submit.php">
               <p><b>Μάθημα:</b><br>
                 <select name="mathima" id="mathimaSelect" style="width: 220%">
                   <?php
