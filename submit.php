@@ -17,7 +17,7 @@
   <?php
   session_start();
   $role = $_SESSION['role'];
-  include("DBconnect.php");
+  include("config.php");
   $userid = $_SESSION['Userid'];
   // Εύρεση των μαθημάτων
   $sql1 = "SELECT * FROM courses";

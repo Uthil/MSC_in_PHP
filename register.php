@@ -48,7 +48,7 @@
 <body>
   <?php // Έλεγχος αν έχει γίνει υποβολή της φόρμας
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include("DBconnect.php");
+    include("config.php");
     $username = htmlspecialchars(trim($_POST["username"]));
     $email = htmlspecialchars(trim($_POST["email"]));
     $password = htmlspecialchars(trim($_POST["pass_1"]));
