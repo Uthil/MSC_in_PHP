@@ -1,1 +1,1 @@
-config.php db_connect.php .env .DS_Store nbproject/
+config.php dbconnect.php .env .DS_Store nbproject/
