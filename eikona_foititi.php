@@ -67,7 +67,7 @@
             </tr>
           </thead>
           <?php
-          include("con.php");
+          include("config.php");
           // TODO: Refactor to Prepared Statements for security
           $query = "SELECT * FROM users WHERE Role='Φοιτητής'";
           $result = $con->query($query);
