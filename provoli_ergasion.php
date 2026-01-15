@@ -29,7 +29,7 @@ if (!isset($_SESSION['username'])) {
             </p>
             <hr class="my-4">
             <p>Παρακαλώ δοκιμάστε ξανά αργότερα.</p>
-            <a class="btn btn-primary btn-lg" href="index.php" role="button">Επιστροφή στην Αρχική</a>
+            <a class="btn btn-primary btn-lg" href="home.php" role="button">Επιστροφή στην Αρχική</a>
         </div>
     </div>
 </div>
