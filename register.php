@@ -52,25 +52,31 @@
     $username = htmlspecialchars(trim($_POST["username"]));
     $email = htmlspecialchars(trim($_POST["email"]));
     $password = htmlspecialchars(trim($_POST["pass_1"]));
-    // Δημιουργία και εκτέλεση του ερωτήματος ελέγχου αν υπάρχεί ίδιο username
-    $sql = "SELECT username FROM users WHERE username = '$username'";
-    $result1 = $con->query($sql);
-    $n = $result1->num_rows;
-    if ($n >= 1) {
-      $con->close();
-      echo '<script>alert("Το username ήδη υπάρχει..."); document.location="register.php";</script>';
-    } else {
-      $sql2 = "INSERT INTO users(Email, username, Password, Role) VALUES ('$email', '$username', '$password', 'Φοιτητής')";
-      $result2 = $con->query($sql2);
-      if ($result2 == FALSE) {
+    // Δημιουργία και εκτέλεση του ερωτήματος ελέγχου αν υπάρχεί ίδιο username (Prepared Statement)
+    $stmt = $con->prepare("SELECT * FROM users WHERE username =?");
+	  $stmt->bind_param("s", $username); // "s" σημαίνει string
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $n = $result->num_rows;
+      if ($n >= 1) {
+        $stmt->close();
         $con->close();
-        echo '<script>alert("Error: Δεν ήταν δυνατή η αποθήκευση..."); window.location="register.php";</script>';
+        echo '<script>alert("Το username ήδη υπάρχει..."); document.location="register.php";</script>';
       } else {
-        $con->close();
-        echo '<script>alert("Επιτυχής αποθήκευση χρήστη."); window.location="index.php";</script>';
-      }
-    }
-  } else {
+        $stmt2 = $con->prepare("INSERT INTO users(Email, username, Password, Role) VALUES (?, ?, ?, 'Φοιτητής')");
+        $stmt2->bind_param("sss", $email, $username, $hashed_password);
+        $result2 = $stmt2->execute();
+          if (!$result2) {
+            $stmt2->close();
+            $con->close();
+            echo '<script>alert("Error: Δεν ήταν δυνατή η αποθήκευση..."); window.location="register.php";</script>';
+          } else {
+            $stmt2->close();
+            $con->close();
+            echo '<script>alert("Επιτυχής αποθήκευση χρήστη."); window.location="index.php";</script>';
+          }
+        }
+    } else {
   ?>
     <div class="container-fluid">
       <div id="menu">
