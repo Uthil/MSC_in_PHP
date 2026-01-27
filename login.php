@@ -19,9 +19,10 @@
     include("config.php");
     $username = htmlspecialchars(trim($_POST["username"]));
     $password = htmlspecialchars(trim($_POST["password"]));
-    $sql = "SELECT * FROM users WHERE username = '$username'";
-    $result = $con->query($sql);
-    $n = $result->num_rows;
+    $stmt = $con->prepare("SELECT * FROM users WHERE username =?");
+    $stmt->bind_param("s", $username); // "s" for string
+    $stmt->execute();
+    $result = $stmt->get_result();
     if ($n == 0) {
       $con->close();
       echo '<script>alert("Τα στοιχεία που δώσατε είναι λάθος!"); document.location="login.php";</script>';
