@@ -18,11 +18,12 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("config.php");
     $username = htmlspecialchars(trim($_POST["username"]));
-    $password = htmlspecialchars(trim($_POST["password"]));
+    $password = htmlspecialchars(trim($_POST["pass_1"]));
     $stmt = $con->prepare("SELECT * FROM users WHERE username =?");
     $stmt->bind_param("s", $username); // "s" for string
     $stmt->execute();
     $result = $stmt->get_result();
+    $n = $result->num_rows;
     if ($n == 0) {
       $con->close();
       echo '<script>alert("Τα στοιχεία που δώσατε είναι λάθος!"); document.location="login.php";</script>';
