@@ -63,6 +63,7 @@
         $con->close();
         echo '<script>alert("Το username ήδη υπάρχει..."); document.location="register.php";</script>';
       } else {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $stmt2 = $con->prepare("INSERT INTO users(Email, username, Password, Role) VALUES (?, ?, ?, 'Φοιτητής')");
         $stmt2->bind_param("sss", $email, $username, $hashed_password);
         $result2 = $stmt2->execute();

@@ -25,13 +25,15 @@
     $result = $stmt->get_result();
     $n = $result->num_rows;
     if ($n == 0) {
+      $stmt->close();
       $con->close();
       echo '<script>alert("Τα στοιχεία που δώσατε είναι λάθος!"); document.location="login.php";</script>';
     } else {
       // Η μεταβλητή $user περιλαμβάνει τα στοιχεία του χρήστη (αποτελέσματα)
       $user = $result->fetch_assoc();
-      $user_password = $user['password'];
-      if ($user_password != $password) {
+      $user_password = $user['Password'];
+      if (!password_verify($password, $user_password)) {
+        $stmt->close();
         $con->close();
         echo '<script>alert("Τα στοιχεία που δώσατε είναι λάθος!"); document.location="login.php";</script>';
       } else {
@@ -39,6 +41,7 @@
         $_SESSION['username'] = $username;
         $_SESSION['role'] = $user['Role'];
         $_SESSION['Userid'] = $user['Userid'];
+        $stmt->close();
         $con->close();
         // Άνοιγμα κεντρικής σελίδας
         header("Location: home.php");
